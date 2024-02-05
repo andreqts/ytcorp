@@ -1,7 +1,10 @@
+import subprocess
+from getpass import getpass
 from typing import List
 import os
-from sqlalchemy import Column, String, Integer, create_engine
 import json
+from sqlalchemy import Column, String, Integer, create_engine
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy import text
 from sqlalchemy import MetaData
 from sqlalchemy import Table
@@ -27,10 +30,35 @@ database_path = "postgresql://{}{}{}@{}:{}/{}".format(
   database_name
 )
 
-class Base(DeclarativeBase):
-  pass
+# DDL - data definition language
+
+# Remove user and database
+dbname = database_name
+username = db_username
+
+firstcmd = f'psql -U {username} postgres -c \'DROP DATABASE "{dbname}";\''
+subprocess.call(firstcmd, shell=True)
+
+passw = db_userpassword
+
+# Create database
+create_db = f"CREATE DATABASE \"{dbname}\" OWNER \"{username}\";"
+subprocess.call(f'psql -U {username} postgres -c \'{create_db}\'', shell=True)
 
 engine = create_engine(database_path, echo=True)
+
+def makeSession():
+  Session = sessionmaker(engine)
+  return Session()
+
+class Base(DeclarativeBase):
+  def insert(self, session, toCommit=False):
+    session.add(self, session)
+    if (toCommit):
+      session.commit()
+
+  def update(self, session):
+    session.commit()
 
 with engine.connect() as conn:
   result = conn.execute(text("select 'hello world yt'"))
@@ -46,90 +74,29 @@ palestr_sect_assoc_table = Table(
 class Palestrante(Base):
   __tablename__ = "palestrante"
 
+  def __init__(self, nome, listSetores, afiliacao, experiencia):
+    self.nome = nome
+    self.setores = listSetores
+    self.afiliacao = afiliacao
+    self.experiencia = experiencia
+
   id: Mapped[int] = mapped_column(primary_key=True)
   nome: Mapped[str] = mapped_column(String(100))
 
-  setor: Mapped[List['Setor']] = relationship(secondary=palestr_sect_assoc_table)
+  setores: Mapped[List['Setor']] = relationship(secondary=palestr_sect_assoc_table)
   afiliacao: Mapped[str] = mapped_column(String(100))
   experiencia: Mapped[int]
 
 class Setor(Base):
   __tablename__ = "setor"
 
+  def __init__(self, nome):
+    self.nome = nome
+
   id: Mapped[int] = mapped_column(primary_key=True)
   nome: Mapped[str] = mapped_column(String(50))
 
-
-# def __repr__(self) -> str:
-#   return f"User(id={self.id!r}, name={self.name!r}, fullname={self.fullname!r})"
+  def __repr__(self) -> str:
+    return f"Setor(id={self.id!r}, name={self.nome!r})"
 
 Base.metadata.create_all(engine)
-
-'''
-setup_db(app)
-    binds a flask application and a SQLAlchemy service
-'''
-# def setup_db(app, database_path=database_path):
-#     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
-#     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-#     db.app = app
-#     db.init_app(app)
-#     db.create_all()
-
-# '''
-# Question
-
-# '''
-# class Question(db.Model):  
-#   __tablename__ = 'questions'
-
-#   id = Column(Integer, primary_key=True)
-#   question = Column(String)
-#   answer = Column(String)
-#   category = Column(String)
-#   difficulty = Column(Integer)
-
-#   def __init__(self, question, answer, category, difficulty):
-#     self.question = question
-#     self.answer = answer
-#     self.category = category
-#     self.difficulty = difficulty
-
-#   def insert(self):
-#     db.session.add(self)
-#     db.session.commit()
-
-#   def update(self):
-#     db.session.commit()
-
-#   def delete(self):
-#     db.session.delete(self)
-#     db.session.commit()
-
-#   def format(self):
-#     return {
-#       'id': self.id,
-#       'question': self.question,
-#       'answer': self.answer,
-#       'category': self.category,
-#       'difficulty': self.difficulty
-#     }
-
-# '''
-# Category
-
-# '''
-# class Category(db.Model):  
-#   __tablename__ = 'categories'
-
-#   id = Column(Integer, primary_key=True)
-#   type = Column(String)
-
-#   def __init__(self, type):
-#     self.type = type
-
-#   def format(self):
-#     return {
-#       'id': self.id,
-#       'type': self.type
-#     }
