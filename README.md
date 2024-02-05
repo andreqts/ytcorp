@@ -2,10 +2,10 @@
 
 ## PRÉ-REQUISITOS (requirements)
 
-1- Linux UBUNTU 20 (ou sistema análogo)
-2- Python 3.8.10 ou superior
-3- Postgres 12 ou superior
-4- SQLAlchemy 2.0.25 ou superior
+1. Linux UBUNTU 20 (ou sistema análogo)
+1. Python 3.8.10 ou superior
+1. Postgres 12 ou superior
+1. SQLAlchemy 2.0.25 ou superior
 
 
 ## SETUP
