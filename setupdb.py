@@ -1,6 +1,7 @@
 from sqlalchemy.orm import sessionmaker
 import models as dbm
 from sqlalchemy import inspect #TODOAQ:
+from enum import IntEnum, auto
 
 
 # insert SETORES
@@ -17,32 +18,58 @@ listSetores = [
     'COMERCIALIZAÇÃO'
 ]
 
+class St(IntEnum):
+    GD = 0
+    AGENCIA = auto()
+    INSTITUTOS = auto()
+    JORNALISTAS = auto()
+    POLITICOS = auto()
+    GERACAO = auto()
+    TRANSMISSAO = auto()
+    DISTRIBUIDORAS = auto()
+    COMERCIALIZACAO = auto()
+
+
+listCatVideos = [
+    'ENTREVISTAS',
+    'DEBATES ONLINE',
+    'DEBATES PRESENCIAIS',
+    'VIDEOS DIDÁTICOS',
+    'APRESENTAÇÕES EM EVENTOS PRESENCIAIS',
+    'APRESENTAÇÃO EM EVENTOS ONLINES',
+]
+
+class Ct(IntEnum):
+    ENTR = 0
+    DBT_ON = auto()
+    DBT_PR = auto()
+    VD_DID = auto()
+    APR_EV_PR = auto()
+    APR_EV_ON = auto()
+    
 listPalestrantes = [
     #NOME, SETORES (indices), AFILIACAO, EXPERIENCIA    
-    ('JERSON KELMAN', [1, 2], 'UFRJ', 51),
-    ('RICHARD LEE HOCHSTETLER', [2], 'INSTITUTO ACENDE BRASIL', 21)
+    ('JERSON KELMAN', [St.AGENCIA, St.INSTITUTOS], 'UFRJ', 51),
+    ('RICHARD LEE HOCHSTETLER', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21)
+]
+
+class Pltr(IntEnum):
+    KELMAN = 0
+    HOCHSTETLER = auto()
+
+listVideos = [
+    # TITLE, ID, CATEGORIA (indice), PALESTRANTES (indices)
+    ('Brazil Energy Frontiers 2023 - Parte 03', '6hwMm02R944', Ct.APR_EV_PR, [Pltr.KELMAN, Pltr.HOCHSTETLER])
 ]
 
 if __name__ == '__main__':
     session = dbm.makeSession()
 
-    # remover todos os arquivos previamente existentes
-    num_deleted = 0
-    try:
-        num_deleted = session.query(dbm.Setor).delete()
-        session.commit()
-    except:
-        session.rollback()
-
-    if (num_deleted):
-        print('{} preexisting rows deleted...'.format(num_deleted))
-
-    session = dbm.makeSession()
-
     # inserção dos setores
     try:
         for nomeSetor in listSetores:
-            recsetor = dbm.Setor(nome=nomeSetor)
+            print(f'Inserting sector "{nomeSetor}"...')
+            recsetor = dbm.Setores(nome=nomeSetor)
             recsetor.insert(session)
 
         session.commit()
@@ -62,12 +89,11 @@ if __name__ == '__main__':
             pafil = palestrData[2]
             pexper = palestrData[3]
 
-            print(f'Inserting palestrante {pnome}...')
-            setoresResult = session.query(dbm.Setor).filter(dbm.Setor.nome.in_(psetores))
+            print(f'Inserting palestrante "{pnome}"...')
+            setoresResult = session.query(dbm.Setores).filter(dbm.Setores.nome.in_(psetores))
             setores = setoresResult.all()
-            print('setores results = ', setores)
 
-            palestrante = dbm.Palestrante(nome=pnome, experiencia=pexper,
+            palestrante = dbm.Palestrantes(nome=pnome, experiencia=pexper,
                                     afiliacao=pafil, listSetores=setores)
         
             palestrante.insert(session)
@@ -76,6 +102,49 @@ if __name__ == '__main__':
         print('Exception inserting Palestrantes!')
         session.rollback()
         raise
+
+    # inserção das categorias de videos
+    session = dbm.makeSession()
+
+    try:
+        for nomeCat in listCatVideos:
+            print(f'Inserting video category "{nomeCat}"...')
+            recCat = dbm.CategoriasVideo(nome=nomeCat)
+            recCat.insert(session)
+        
+        session.commit()
+    except:
+        print('Exception inserting CategoriasVideo!')
+        session.rollback()
+        raise
+    
+    # inserção dos videos
+    session = dbm.makeSession()
+
+    try:
+        for videoData in listVideos:
+            vtitle = videoData[0]
+            vid = videoData[1]
+            vcat = listCatVideos[videoData[2]]
+
+            catResults = session.query(dbm.CategoriasVideo).filter(dbm.CategoriasVideo.nome == vcat)
+            categoria = catResults.one()
+
+            vpalestr = [listPalestrantes[i][0] for i in videoData[3]]
+            palstrResults = session.query(dbm.Palestrantes).filter(dbm.Palestrantes.nome.in_(vpalestr))
+            palestrantes = palstrResults.all()
+
+            print(f'Inserting video "{vtitle}"...')
+            video = dbm.Videos(title=vtitle, yt_id=vid, categoria=categoria, palestrantes=palestrantes)
+            video.insert(session)
+        
+        session.commit()
+    except:
+        print('Exception inserting Videos!')
+        session.rollback()
+        raise
+
+    print('Done!')
 
     
 
