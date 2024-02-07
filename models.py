@@ -39,7 +39,7 @@ username = db_username
 firstcmd = f'psql -U {username} postgres -c \'DROP DATABASE "{dbname}";\''
 
 try:
-  subprocess.check_callcall(firstcmd, shell=True)
+  subprocess.check_call(firstcmd, shell=True)
 except:
   print('Error droping database, did it already exist?')
 
