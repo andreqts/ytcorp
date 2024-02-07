@@ -127,10 +127,11 @@ class AssocVideosPalestrantes(Base):
 class Videos(Base):
   __tablename__ = "videos"
 
-  def __init__(self, title, yt_id, categoria):
-    self.title = nome
+  def __init__(self, title, yt_id, categoria, palestrantes):
+    self.title = title
     self.yt_id = yt_id
     self.categoria = categoria
+    self.palestrantes = palestrantes
 
   id: Mapped[int] = mapped_column(primary_key=True)
   title: Mapped[str] = mapped_column(String(100))
