@@ -3,6 +3,7 @@ from getpass import getpass
 from typing import List
 import os
 import json
+from datetime import date
 from sqlalchemy import Column, String, Integer, create_engine, select
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import text
@@ -14,6 +15,7 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
+from sqlalchemy import Date
 
 database_name = os.getenv('YT_DB_NAME')
 db_username = os.getenv('YT_DB_USER')
@@ -127,7 +129,7 @@ class AssocVideosPalestrantes(Base):
 class Videos(Base):
   __tablename__ = "videos"
 
-  def __init__(self, title, yt_id, categoria, palestrantes):
+  def __init__(self, title, yt_id, categoria, palestrantes, data=None):
     self.title = title
     self.yt_id = yt_id
     self.categoria = categoria
@@ -138,6 +140,9 @@ class Videos(Base):
 
   # o youtube id é o valor que vem na URL do video após https://www.youtube.com/watch?v=
   yt_id: Mapped[str] = mapped_column(String(11), unique=True)
+
+  # data de publicação: é nullable porque nem sempre é possível encontrar esse dado no YT
+  data: Mapped[date] = mapped_column(Date, nullable=True)
 
   categoria_id: Mapped[int] = mapped_column(ForeignKey("categorias_video.id"))
   categoria: Mapped['CategoriasVideo'] = relationship()
