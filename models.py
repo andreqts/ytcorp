@@ -134,6 +134,7 @@ class Videos(Base):
     self.yt_id = yt_id
     self.categoria = categoria
     self.palestrantes = palestrantes
+    self.data = data
 
   id: Mapped[int] = mapped_column(primary_key=True)
   title: Mapped[str] = mapped_column(String(100))
