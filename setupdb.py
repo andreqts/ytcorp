@@ -2,6 +2,7 @@ from sqlalchemy.orm import sessionmaker
 import models as dbm
 from sqlalchemy import inspect #TODOAQ:
 from enum import IntEnum, auto
+from datetime import date
 
 
 # insert SETORES
@@ -58,8 +59,9 @@ class Pltr(IntEnum):
     HOCHSTETLER = auto()
 
 listVideos = [
-    # TITLE, ID, CATEGORIA (indice), PALESTRANTES (indices)
-    ('Brazil Energy Frontiers 2023 - Parte 03', '6hwMm02R944', Ct.APR_EV_PR, [Pltr.KELMAN, Pltr.HOCHSTETLER])
+    # TITLE, ID, CATEGORIA (indice), PALESTRANTES (indices), DATA (formato ISO)
+    ('Brazil Energy Frontiers 2023 - Parte 03', '6hwMm02R944', Ct.APR_EV_PR, 
+     [Pltr.KELMAN, Pltr.HOCHSTETLER], "2023-10-25")
 ]
 
 if __name__ == '__main__':
@@ -134,8 +136,11 @@ if __name__ == '__main__':
             palstrResults = session.query(dbm.Palestrantes).filter(dbm.Palestrantes.nome.in_(vpalestr))
             palestrantes = palstrResults.all()
 
+            vdata = date.fromisoformat(videoData[4])
+
             print(f'Inserting video "{vtitle}"...')
-            video = dbm.Videos(title=vtitle, yt_id=vid, categoria=categoria, palestrantes=palestrantes)
+            video = dbm.Videos(title=vtitle, yt_id=vid, categoria=categoria, palestrantes=palestrantes,
+                                data=vdata)
             video.insert(session)
         
         session.commit()
