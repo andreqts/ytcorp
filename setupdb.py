@@ -18,7 +18,8 @@ listSetores = [
     'DISTRIBUIDORAS',
     'COMERCIALIZAÇÃO',
     'CONSUMIDORES',
-    'CONSULTORES JURÍDICOS'
+    'CONSULTORES JURÍDICOS',
+    'GESTÃO E INVESTIMENTOS'
 ]
 
 class St(IntEnum):
@@ -33,6 +34,7 @@ class St(IntEnum):
     COMERCIALIZACAO = auto()
     CONSUMIDORES = auto()
     ADVOGADOS = auto()
+    INVESTIMENTOS = auto()
 
 listCatVideos = [
     'ENTREVISTA ONLINE',
@@ -55,50 +57,84 @@ class Ct(IntEnum):
     
 listPalestrantes = [
     #NOME, SETORES (indices), AFILIACAO, EXPERIENCIA (na ind. de energia)   
+    ('ALEX CHERMUCSNIS VIEIRA', [St.INVESTIMENTOS], 'COPPERLEAF STRATEGIC MANAGEMENT', 20),
     ('ALEXANDRE UHLIG', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 18),
+    ('ANDRE RUELLI', [St.AGENCIA], 'ANEEL', 23),
+    ('ANGELA SARAIVA', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 23),
     ('ARNALDO JARDIM', [St.POLITICOS], 'DEPUTADO FEDERAL - CIDADANIA', 0),
+    ('BÁRBARA RUBIM', [St.GD, St.ADVOGADOS], 'ABSOLAR', 7),
+    ('CARLOS ALBERTO CALIXTO MATTAR', [St.INSTITUTOS], 'ANEEL', 40),
+    ('CLAUDIO FABIANO ALVES', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 11),
     ('CLAUDIO J. D. SALES', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 30),
     ('EDUARDO MUELLER MONTEIRO', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
     ('EDVALDO SANTANA', [St.INSTITUTOS, St.AGENCIA, St.CONSUMIDORES], 'INSTITUTO ACENDE BRASIL', 30),
     ('EMANUEL SIMON', [St.INSTITUTOS], 'LATIN AMERICA POWER & RENEWABLES', 14),
+    ('FERNANDO BALDOTTO', [St.DISTRIBUIDORAS], 'EDP BRASIL', 19),
+    ('FERNANDO MOSNA', [St.AGENCIA, St.ADVOGADOS], 'ANEEL', 14),
     ('GUILHERME CHRISPIM', [St.GD], 'ABGD', 9),
+    ('GUILHERME SUSTERAS', [St.GD], 'ABSOLAR', 7),
+    ('HÉLVIO NEVES GUERRA', [St.AGENCIA], 'ANEEL', 43),
     ('JERSON KELMAN', [St.AGENCIA, St.INSTITUTOS], 'UFRJ', 51),
+    ('JESSIANE PEREIRA', [St.AGENCIA], 'ANEEL', 7),
     ('JOSÉ MÁRIO ABDO', [St.INSTITUTOS, St.AGENCIA], 'ABDO, ELLERY & ASSOCIADOS', 51),
     ('LEANDRO CAIXETA MOREIRA', [St.POLITICOS, St.AGENCIA], 'ANEEL', 20),
     ('MARCIA MASSOTTI', [St.DISTRIBUIDORAS], 'ENEL', 18),
     ('MARCOS AURÉLIO MADUREIRA DA SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 48),
     ('NARA RÚBIA DE SOUZA', [St.AGENCIA], 'ANEEL', 28),
+    ('PEDRO MELLO LOMBARDI', [St.AGENCIA], 'ANEEL', 19),
     ('RAPHAEL GOMES', [St.ADVOGADOS], 'LEFOSSE ADVOGADOS', 23),
     ('RICARDO BRANDAO SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 20),
+    ('RICARDO LAVORATO TILI', [St.AGENCIA], 'ANEEL', 17),
     ('RICHARD LEE HOCHSTETLER', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
+    ('RODRIGO LOPES SAUAIA', [St.INSTITUTOS], 'ABSOLAR', 16),
     ('RODRIGO ROLLEMBERG', [St.POLITICOS], 'SECRETARIO - PSB', 0),
     ('SOLANGE RIBEIRO', [St.DISTRIBUIDORAS, St.INSTITUTOS], 'NEOENERGIA', 20),
     ('STEFANIA RELVA', [St.INSTITUTOS], 'USP', 12),
 ]
 
 class Pltr(IntEnum):
-    UHLIG = 0
+    VIEIRA = 0
+    UHLIG = auto()
+    RUELLI = auto()
+    ANGELA = auto()
     JARDIM = auto()
+    BARBARA = auto()
+    MATTAR = auto()
+    CLAUDIO = auto()
     SALES = auto()
     MONTEIRO = auto()
     EDVALDO = auto()
     SIMON = auto()
+    BALDOTTO = auto()
+    MOSNA = auto()
     CHRISPIM = auto()
+    SUSTERAS = auto()
+    HELVIO = auto()
     KELMAN = auto()
+    JESSIANE = auto()
     ABDO = auto()
     CAIXETA = auto()
     MASSOTTI = auto()
     MADUREIRA = auto()
     NARA = auto()
+    LOMBARDI = auto()
     RAPHAEL = auto() 
     BRANDAO = auto()
+    TILI = auto()
     HOCHSTETLER = auto()
+    SAUAIA = auto()
     ROLLEMBERG = auto()
     SOLANGE = auto()
     RELVA = auto()
 
 listVideos = [
     # TITLE, ID, CATEGORIA (indice), PALESTRANTES (indices), DATA (formato ISO)
+    ('CanalEnergia Debate os caminhos da Geração Distribuída no Brasil', '9iwHMbiA7mA', Ct.DBT_ON, 
+        [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "2023-04-27"),
+    ('ENERGY Tech TALKS | Temporada 4, Episódio 1', 'XFIplF43xbo', Ct.DBT_ON, 
+        [Pltr.EDVALDO, Pltr.ANGELA, Pltr.CLAUDIO], "2023-08-24"),
+    ('ENERGY Tech TALKS | Temporada 4, Episódio 2', 'misg_b6ut0s', Ct.ENTR_ON, 
+        [Pltr.BALDOTTO, Pltr.VIEIRA], "2023-10-06"),
     ('Brazil Energy Frontiers 2023 - Parte 01', 'rVQRj8MCQFk', Ct.APR_EV_PR, 
         [Pltr.UHLIG, Pltr.SIMON], "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 02', 'Bl4UnXyjjB0', Ct.APR_EV_PR, 
@@ -106,9 +142,10 @@ listVideos = [
     ('Brazil Energy Frontiers 2023 - Parte 03', '6hwMm02R944', Ct.APR_EV_PR, 
         [Pltr.KELMAN, Pltr.HOCHSTETLER], "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 04', '7xnTO0g0D7s', Ct.APR_EV_PR, 
-        [Pltr.ABDO, Pltr.CAIXETA, Pltr.SOLANGE, Pltr.BRANDAO, Pltr.SALES], "2023-10-25"),
-    ('CanalEnergia Debate os caminhos da Geração Distribuída no Brasil', '9iwHMbiA7mA', Ct.DBT_ON, 
-        [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "2023-04-27"),
+        [Pltr.ABDO, Pltr.CAIXETA, Pltr.SOLANGE, Pltr.BRANDAO, Pltr.SALES], "2023-10-25"),    
+    ('Mesa Redonda – Desafios da Micro e Minigeração Distribuída', 'JovmyoI0Wxs', Ct.APR_EV_PR, 
+        [Pltr.MOSNA, Pltr.TILI, Pltr.HELVIO, Pltr.SAUAIA, Pltr.LOMBARDI, Pltr.BARBARA,
+         Pltr.JESSIANE], "2023-11-23"),
     ('SETOR ELÉTRICO PASSADO, PRESENTE, FUTURO', 'zVlDMCxat_c', Ct.ENTR_PR, 
         [Pltr.EDVALDO], "2024-10-24"),
 ]
