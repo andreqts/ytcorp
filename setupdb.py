@@ -57,26 +57,32 @@ class Ct(IntEnum):
     
 listPalestrantes = [
     #NOME, SETORES (indices), AFILIACAO, EXPERIENCIA (na ind. de energia)   
+    ('AGNES MARIA DE ARAGÃO DA COSTA', [St.AGENCIA], 'ANEEL', 9),
     ('ALEX CHERMUCSNIS VIEIRA', [St.INVESTIMENTOS], 'COPPERLEAF STRATEGIC MANAGEMENT', 20),
     ('ALEXANDRE UHLIG', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 18),
     ('ANDRE RUELLI', [St.AGENCIA], 'ANEEL', 23),
     ('ANGELA SARAIVA', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 23),
-    ('ARNALDO JARDIM', [St.POLITICOS], 'DEPUTADO FEDERAL - CIDADANIA', 0),
+    ('ARNALDO CALIL PEREIRA JARDIM', [St.POLITICOS], 'DEPUTADO FEDERAL - CIDADANIA', 0),
     ('BÁRBARA RUBIM', [St.GD, St.ADVOGADOS], 'ABSOLAR', 7),
+    ('BENTO COSTA LIMA LEITE DE ALBUQUERQUE JUNIOR', [St.POLITICOS], 'Ex-ministro', 8),
     ('CARLOS ALBERTO CALIXTO MATTAR', [St.INSTITUTOS], 'ANEEL', 40),
     ('CLAUDIO FABIANO ALVES', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 11),
     ('CLAUDIO J. D. SALES', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 30),
+    ('DANILO FORTE', [St.POLITICOS], 'DEPUTADO FEDERAL UNIÃO-CE', 0),
     ('EDUARDO MUELLER MONTEIRO', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
     ('EDVALDO SANTANA', [St.INSTITUTOS, St.AGENCIA, St.CONSUMIDORES], 'INSTITUTO ACENDE BRASIL', 30),
+    ('EFRAIN PEREIRA DA CRUZ', [St.AGENCIA, St.POLITICOS], 'Ex-Diretor da ANEEL', 9),
     ('EMANUEL SIMON', [St.INSTITUTOS], 'LATIN AMERICA POWER & RENEWABLES', 14),
     ('FERNANDO BALDOTTO', [St.DISTRIBUIDORAS], 'EDP BRASIL', 19),
     ('FERNANDO MOSNA', [St.AGENCIA, St.ADVOGADOS], 'ANEEL', 14),
+    ('GREG GUTHRIDGE', [St.INSTITUTOS], 'Ernst & Young', 34),
     ('GUILHERME CHRISPIM', [St.GD], 'ABGD', 9),
     ('GUILHERME SUSTERAS', [St.GD], 'ABSOLAR', 7),
     ('HÉLVIO NEVES GUERRA', [St.AGENCIA], 'ANEEL', 43),
     ('JERSON KELMAN', [St.AGENCIA, St.INSTITUTOS], 'UFRJ', 51),
     ('JESSIANE PEREIRA', [St.AGENCIA], 'ANEEL', 7),
     ('JOSÉ MÁRIO ABDO', [St.INSTITUTOS, St.AGENCIA], 'ABDO, ELLERY & ASSOCIADOS', 51),
+    ('LAVINIA HOLLANDA', [St.INSTITUTOS], 'ESCOPO ENERGIA', 10),
     ('LEANDRO CAIXETA MOREIRA', [St.POLITICOS, St.AGENCIA], 'ANEEL', 20),
     ('MARCIA MASSOTTI', [St.DISTRIBUIDORAS], 'ENEL', 18),
     ('MARCOS AURÉLIO MADUREIRA DA SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 48),
@@ -84,35 +90,46 @@ listPalestrantes = [
     ('PEDRO MELLO LOMBARDI', [St.AGENCIA], 'ANEEL', 19),
     ('RAPHAEL GOMES', [St.ADVOGADOS], 'LEFOSSE ADVOGADOS', 23),
     ('RICARDO BRANDAO SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 20),
+    ('RICARDO FERNANDEZ', [St.INSTITUTOS], 'Ernst & Young', 26),
     ('RICARDO LAVORATO TILI', [St.AGENCIA], 'ANEEL', 17),
     ('RICHARD LEE HOCHSTETLER', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
+    ('RODRIGO FERREIRA', [St.COMERCIALIZACAO, St.JORNALISTAS], 'ABRACEEL', 24),
     ('RODRIGO LOPES SAUAIA', [St.INSTITUTOS], 'ABSOLAR', 16),
+    ('RODRIGO MORISHITA WADA', [St.ADVOGADOS], 'UniCEUB', 0),
     ('RODRIGO ROLLEMBERG', [St.POLITICOS], 'SECRETARIO - PSB', 0),
+    ('SANDOVAL DE ARAUJO FEITOSA NETO', [St.AGENCIA], 'ANEEL', 21),
     ('SOLANGE RIBEIRO', [St.DISTRIBUIDORAS, St.INSTITUTOS], 'NEOENERGIA', 20),
     ('STEFANIA RELVA', [St.INSTITUTOS], 'USP', 12),
 ]
 
+
 class Pltr(IntEnum):
-    VIEIRA = 0
+    AGNES = 0
+    VIEIRA = auto()
     UHLIG = auto()
     RUELLI = auto()
     ANGELA = auto()
     JARDIM = auto()
     BARBARA = auto()
+    BENTO = auto()
     MATTAR = auto()
     CLAUDIO = auto()
     SALES = auto()
+    DANILO = auto()
     MONTEIRO = auto()
     EDVALDO = auto()
+    EFRAIN = auto()
     SIMON = auto()
     BALDOTTO = auto()
     MOSNA = auto()
+    GREG = auto()
     CHRISPIM = auto()
     SUSTERAS = auto()
     HELVIO = auto()
     KELMAN = auto()
     JESSIANE = auto()
     ABDO = auto()
+    LAVINIA = auto()
     CAIXETA = auto()
     MASSOTTI = auto()
     MADUREIRA = auto()
@@ -120,15 +137,22 @@ class Pltr(IntEnum):
     LOMBARDI = auto()
     RAPHAEL = auto() 
     BRANDAO = auto()
+    FERNANDEZ = auto()
     TILI = auto()
     HOCHSTETLER = auto()
+    FERREIRA = auto()
     SAUAIA = auto()
+    MORISHITA = auto()
     ROLLEMBERG = auto()
+    SANDOVAL = auto()
     SOLANGE = auto()
     RELVA = auto()
 
 listVideos = [
     # TITLE, ID, CATEGORIA (indice), PALESTRANTES (indices), DATA (formato ISO)
+    ('Seminário “O Futuro do Consumidor de Energia Elétrica” – 5/5/2022 – Parte 1', 'UntRu_fFeLU', Ct.DBT_PR,
+        [Pltr.SANDOVAL, Pltr.DANILO, Pltr.JARDIM, Pltr.BENTO, Pltr.GREG, Pltr.FERNANDEZ, Pltr.AGNES,
+         Pltr.FERREIRA, Pltr.LAVINIA], "2022-05-05"),
     ('CanalEnergia Debate os caminhos da Geração Distribuída no Brasil', '9iwHMbiA7mA', Ct.DBT_ON, 
         [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "2023-04-27"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 1', 'XFIplF43xbo', Ct.DBT_ON, 
