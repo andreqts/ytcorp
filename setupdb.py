@@ -10,7 +10,7 @@ from datetime import date
 listSetores = [
     'GD',
     'AGÊNCIA REGULADORA', 
-    'UNIVERSIDADES E INSTITUTOS DE PESQUISA',
+    'UNIVERSIDADES, CONSULTORIAS E INSTITUTOS DE PESQUISA',
     'JORNALISTAS',
     'POLÍTICOS PROFISSIONAIS',
     'GERAÇÃO',
@@ -84,14 +84,19 @@ listPalestrantes = [
     ('JOSÉ MÁRIO ABDO', [St.INSTITUTOS, St.AGENCIA], 'ABDO, ELLERY & ASSOCIADOS', 51),
     ('LAVINIA HOLLANDA', [St.INSTITUTOS], 'ESCOPO ENERGIA', 10),
     ('LEANDRO CAIXETA MOREIRA', [St.POLITICOS, St.AGENCIA], 'ANEEL', 20),
+    ('LUIZ AUGUSTO NOBREGA BARROSO', [St.INSTITUTOS], 'PSR', 26),
     ('MARCIA MASSOTTI', [St.DISTRIBUIDORAS], 'ENEL', 18),
     ('MARCOS AURÉLIO MADUREIRA DA SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 48),
+    ('MAURICIO ALVARES DA SILVA VELLOSO FERREIRA', [St.DISTRIBUIDORAS], 'EQUATORIAL', 9),
     ('NARA RÚBIA DE SOUZA', [St.AGENCIA], 'ANEEL', 28),
+    ('NICOLÒ ROSSETTO', [St.INSTITUTOS], 'FLORENCE SCHOOL OF REGULATION', 15),
     ('PEDRO MELLO LOMBARDI', [St.AGENCIA], 'ANEEL', 19),
     ('RAPHAEL GOMES', [St.ADVOGADOS], 'LEFOSSE ADVOGADOS', 23),
+    ('RENATO POVIA', [St.GERACAO, St.TRANSMISSAO, St.DISTRIBUIDORAS, St.COMERCIALIZACAO], 'CPFL ENERGIA', 12),
     ('RICARDO BRANDAO SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 20),
     ('RICARDO FERNANDEZ', [St.INSTITUTOS], 'Ernst & Young', 26),
     ('RICARDO LAVORATO TILI', [St.AGENCIA], 'ANEEL', 17),
+    ('RICARDO PEREZ BOTELHO', [St.GERACAO, St.TRANSMISSAO, St.DISTRIBUIDORAS, St.COMERCIALIZACAO], 'ENERGISA', 23),
     ('RICHARD LEE HOCHSTETLER', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
     ('RODRIGO FERREIRA', [St.COMERCIALIZACAO, St.JORNALISTAS], 'ABRACEEL', 24),
     ('RODRIGO LOPES SAUAIA', [St.INSTITUTOS], 'ABSOLAR', 16),
@@ -100,6 +105,9 @@ listPalestrantes = [
     ('SANDOVAL DE ARAUJO FEITOSA NETO', [St.AGENCIA], 'ANEEL', 21),
     ('SOLANGE RIBEIRO', [St.DISTRIBUIDORAS, St.INSTITUTOS], 'NEOENERGIA', 20),
     ('STEFANIA RELVA', [St.INSTITUTOS], 'USP', 12),
+    ('TIAGO LEITE FERREIRA', [St.INSTITUTOS], 'UNIVERSIDADE DE COMILLAS, ESPANHA', 19),
+    ('VLADIMIRO HENRIQUE BARROSA PINTO DE MIRANDA', [St.INSTITUTOS], 'UNIVERSIDADE DO PORTO', 41),
+    ('WALMIR DE FREITAS FILHO', [St.INSTITUTOS], 'UNICAMP', 23),
 ]
 
 
@@ -131,14 +139,19 @@ class Pltr(IntEnum):
     ABDO = auto()
     LAVINIA = auto()
     CAIXETA = auto()
+    BARROSO = auto()
     MASSOTTI = auto()
     MADUREIRA = auto()
+    VELLOSO = auto()
     NARA = auto()
+    ROSSETTO = auto()
     LOMBARDI = auto()
     RAPHAEL = auto() 
+    POVIA = auto()
     BRANDAO = auto()
     FERNANDEZ = auto()
     TILI = auto()
+    BOTELHO = auto()
     HOCHSTETLER = auto()
     FERREIRA = auto()
     SAUAIA = auto()
@@ -147,12 +160,18 @@ class Pltr(IntEnum):
     SANDOVAL = auto()
     SOLANGE = auto()
     RELVA = auto()
+    TIAGO = auto()
+    VLADIMIRO = auto()
+    WALMIR = auto()
 
 listVideos = [
     # TITLE, ID, CATEGORIA (indice), PALESTRANTES (indices), DATA (formato ISO)
-    ('Seminário “O Futuro do Consumidor de Energia Elétrica” – 5/5/2022 – Parte 1', 'UntRu_fFeLU', Ct.DBT_PR,
-        [Pltr.SANDOVAL, Pltr.DANILO, Pltr.JARDIM, Pltr.BENTO, Pltr.GREG, Pltr.FERNANDEZ, Pltr.AGNES,
-         Pltr.FERREIRA, Pltr.LAVINIA], "2022-05-05"),
+    ('Seminário “O Futuro do Consumidor de Energia Elétrica” – 5/5/2022 – Parte 1', 'UntRu_fFeLU', Ct.APR_EV_PR,
+        [Pltr.SANDOVAL, Pltr.DANILO, Pltr.JARDIM, Pltr.BENTO, Pltr.GREG, Pltr.FERNANDEZ, Pltr.EFRAIN, Pltr.MORISHITA,
+         Pltr.AGNES, Pltr.FERREIRA, Pltr.LAVINIA], "2022-05-05"),
+    ('Seminário “O Futuro do Consumidor de Energia Elétrica” – 5/5/2022 – Parte 2', 'LivoOrKfi1Y', Ct.APR_EV_PR,
+        [Pltr.SANDOVAL, Pltr.BARROSO, Pltr.TIAGO, Pltr.VLADIMIRO, Pltr.ROSSETTO, Pltr.HELVIO, Pltr.WALMIR, Pltr.BOTELHO,
+         Pltr.VELLOSO, Pltr.POVIA], "2022-05-05"),
     ('CanalEnergia Debate os caminhos da Geração Distribuída no Brasil', '9iwHMbiA7mA', Ct.DBT_ON, 
         [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "2023-04-27"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 1', 'XFIplF43xbo', Ct.DBT_ON, 
@@ -168,7 +187,7 @@ listVideos = [
     ('Brazil Energy Frontiers 2023 - Parte 04', '7xnTO0g0D7s', Ct.APR_EV_PR, 
         [Pltr.ABDO, Pltr.CAIXETA, Pltr.SOLANGE, Pltr.BRANDAO, Pltr.SALES], "2023-10-25"),    
     ('Mesa Redonda – Desafios da Micro e Minigeração Distribuída', 'JovmyoI0Wxs', Ct.APR_EV_PR, 
-        [Pltr.MOSNA, Pltr.TILI, Pltr.HELVIO, Pltr.SAUAIA, Pltr.LOMBARDI, Pltr.BARBARA,
+        [Pltr.MOSNA, Pltr.TILI, Pltr.HELVIO, Pltr.SAUAIA, Pltr.LOMBARDI, Pltr.BARBARA, 
          Pltr.JESSIANE], "2023-11-23"),
     ('SETOR ELÉTRICO PASSADO, PRESENTE, FUTURO', 'zVlDMCxat_c', Ct.ENTR_PR, 
         [Pltr.EDVALDO], "2024-10-24"),
