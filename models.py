@@ -85,7 +85,7 @@ class Setores(Base):
     self.nome = nome
 
   id: Mapped[int] = mapped_column(primary_key=True)
-  nome: Mapped[str] = mapped_column(String(50))
+  nome: Mapped[str] = mapped_column(String(60))
 
   def __repr__(self) -> str:
     return f"Setor(id={self.id!r}, name={self.nome!r})"
