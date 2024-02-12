@@ -67,14 +67,18 @@ listPalestrantes = [
     ('ARNALDO CALIL PEREIRA JARDIM', [St.POLITICOS], 'DEPUTADO FEDERAL - CIDADANIA', 0),
     ('BÁRBARA RUBIM', [St.GD, St.ADVOGADOS], 'ABSOLAR', 7),
     ('BENTO COSTA LIMA LEITE DE ALBUQUERQUE JUNIOR', [St.POLITICOS], 'Ex-ministro', 8),
+    ('BRUNO HENRIQUE KIKUMOTO DE PAULA', [St.GD, St.INSTITUTOS], 'CANAL SOLAR', 7),
     ('CARLOS ALBERTO CALIXTO MATTAR', [St.INSTITUTOS], 'ANEEL', 40),
+    ('CLAUDIO ELIAS CARVALHO', [St.FABRICANTES], 'VOLT ROBOTICS', 24),
     ('CLAUDIO FABIANO ALVES', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 11),
     ('CLAUDIO J. D. SALES', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 30),
     ('DANILO FORTE', [St.POLITICOS], 'DEPUTADO FEDERAL UNIÃO-CE', 0),
+    ('DONATO DA SILVA FILHO', [St.FABRICANTES], 'VOLT ROBOTICS', 20),
     ('EDUARDO MUELLER MONTEIRO', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
     ('EDVALDO SANTANA', [St.INSTITUTOS, St.AGENCIA, St.CONSUMIDORES], 'INSTITUTO ACENDE BRASIL', 30),
     ('EFRAIN PEREIRA DA CRUZ', [St.AGENCIA, St.POLITICOS], 'Ex-Diretor da ANEEL', 9),
     ('EMANUEL SIMON', [St.INSTITUTOS], 'LATIN AMERICA POWER & RENEWABLES', 14),
+    ('EWERTON GUARNIER', [St.FABRICANTES], 'VOLT ROBOTICS', 16),
     ('FELIPE GONÇALVES', [St.INSTITUTOS], 'FGV ENERGIA RESEARCH', 20),
     ('FERNANDO BALDOTTO', [St.DISTRIBUIDORAS], 'EDP BRASIL', 19),
     ('FERNANDO MOSNA', [St.AGENCIA, St.ADVOGADOS], 'ANEEL', 14),
@@ -128,14 +132,18 @@ class Pltr(IntEnum):
     JARDIM = auto()
     BARBARA = auto()
     BENTO = auto()
+    BRUNO = auto()
     MATTAR = auto()
+    CARVALHO = auto()
     CLAUDIO = auto()
     SALES = auto()
     DANILO = auto()
+    DONATO = auto()
     MONTEIRO = auto()
     EDVALDO = auto()
     EFRAIN = auto()
     SIMON = auto()
+    EWERTON = auto()
     FELIPE = auto()
     BALDOTTO = auto()
     MOSNA = auto()
@@ -206,6 +214,8 @@ listVideos = [
     ('Mesa Redonda – Desafios da Micro e Minigeração Distribuída', 'JovmyoI0Wxs', Ct.APR_EV_PR, 
         [Pltr.MOSNA, Pltr.TILI, Pltr.HELVIO, Pltr.SAUAIA, Pltr.LOMBARDI, Pltr.BARBARA, 
          Pltr.JESSIANE], "03:43:21", "2023-11-23"),
+    ('Processos Tarifários de 2024: O que esperar? | Live Canal Solar', 'sd6VqMoKXDA', Ct.DBT_ON, 
+        [Pltr.DONATO, Pltr.CARVALHO, Pltr.EWERTON, Pltr.BRUNO], "01:19:16", "2024-01-24"),
     ('SETOR ELÉTRICO PASSADO, PRESENTE, FUTURO', 'zVlDMCxat_c', Ct.ENTR_PR, 
         [Pltr.EDVALDO], "01:17:29", "2024-10-24"),
 ]
