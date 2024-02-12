@@ -18,7 +18,8 @@ listSetores = [
     'COMERCIALIZAÇÃO',
     'CONSUMIDORES',
     'CONSULTORES JURÍDICOS',
-    'GESTÃO E INVESTIMENTOS'
+    'GESTÃO E INVESTIMENTOS',
+    'FABRICANTES DE EQUIPAMENTOS E TECNOLOGIA'
 ]
 
 class St(IntEnum):
@@ -34,6 +35,7 @@ class St(IntEnum):
     CONSUMIDORES = auto()
     ADVOGADOS = auto()
     INVESTIMENTOS = auto()
+    FABRICANTES = auto()
 
 listCatVideos = [
     'ENTREVISTA ONLINE',
@@ -57,6 +59,7 @@ class Ct(IntEnum):
 listPalestrantes = [
     #NOME, SETORES (indices), AFILIACAO, EXPERIENCIA (na ind. de energia)   
     ('AGNES MARIA DE ARAGÃO DA COSTA', [St.AGENCIA], 'ANEEL', 9),
+    ('ALDO DE JESUS PESSANHA', [St.DISTRIBUIDORAS], 'ENEL', 17),    
     ('ALEX CHERMUCSNIS VIEIRA', [St.INVESTIMENTOS], 'COPPERLEAF STRATEGIC MANAGEMENT', 20),
     ('ALEXANDRE UHLIG', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 18),
     ('ANDRE RUELLI', [St.AGENCIA], 'ANEEL', 23),
@@ -72,6 +75,7 @@ listPalestrantes = [
     ('EDVALDO SANTANA', [St.INSTITUTOS, St.AGENCIA, St.CONSUMIDORES], 'INSTITUTO ACENDE BRASIL', 30),
     ('EFRAIN PEREIRA DA CRUZ', [St.AGENCIA, St.POLITICOS], 'Ex-Diretor da ANEEL', 9),
     ('EMANUEL SIMON', [St.INSTITUTOS], 'LATIN AMERICA POWER & RENEWABLES', 14),
+    ('FELIPE GONÇALVES', [St.INSTITUTOS], 'FGV ENERGIA RESEARCH', 20),
     ('FERNANDO BALDOTTO', [St.DISTRIBUIDORAS], 'EDP BRASIL', 19),
     ('FERNANDO MOSNA', [St.AGENCIA, St.ADVOGADOS], 'ANEEL', 14),
     ('GREG GUTHRIDGE', [St.INSTITUTOS], 'Ernst & Young', 34),
@@ -83,11 +87,14 @@ listPalestrantes = [
     ('JOSÉ MÁRIO ABDO', [St.INSTITUTOS, St.AGENCIA], 'ABDO, ELLERY & ASSOCIADOS', 51),
     ('LAVINIA HOLLANDA', [St.INSTITUTOS], 'ESCOPO ENERGIA', 10),
     ('LEANDRO CAIXETA MOREIRA', [St.POLITICOS, St.AGENCIA], 'ANEEL', 20),
+    ('LINDEMBERG REIS', [St.DISTRIBUIDORAS], 'ABRADEE', 18),
     ('LUIZ AUGUSTO NOBREGA BARROSO', [St.INSTITUTOS], 'PSR', 26),
     ('MARCIA MASSOTTI', [St.DISTRIBUIDORAS], 'ENEL', 18),
     ('MARCOS AURÉLIO MADUREIRA DA SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 48),
+    ('MARCOS VASCONCELOS', [St.AGENCIA], 'ANEEL', 14),
     ('MAURICIO ALVARES DA SILVA VELLOSO FERREIRA', [St.DISTRIBUIDORAS], 'EQUATORIAL', 9),
     ('NARA RÚBIA DE SOUZA', [St.AGENCIA], 'ANEEL', 28),
+    ('NELSON JOSE HUBNER MOREIRA', [St.AGENCIA, St.INSTITUTOS], 'GESEL E EX-ANEEL', 29),
     ('NICOLÒ ROSSETTO', [St.INSTITUTOS], 'FLORENCE SCHOOL OF REGULATION', 15),
     ('PEDRO MELLO LOMBARDI', [St.AGENCIA], 'ANEEL', 19),
     ('RAPHAEL GOMES', [St.ADVOGADOS], 'LEFOSSE ADVOGADOS', 23),
@@ -97,6 +104,7 @@ listPalestrantes = [
     ('RICARDO LAVORATO TILI', [St.AGENCIA], 'ANEEL', 17),
     ('RICARDO PEREZ BOTELHO', [St.GERACAO, St.TRANSMISSAO, St.DISTRIBUIDORAS, St.COMERCIALIZACAO], 'ENERGISA', 23),
     ('RICHARD LEE HOCHSTETLER', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
+    ('ROBERTO VALER', [St.FABRICANTES], 'HUAWEI', 19),
     ('RODRIGO FERREIRA', [St.COMERCIALIZACAO, St.JORNALISTAS], 'ABRACEEL', 24),
     ('RODRIGO LOPES SAUAIA', [St.INSTITUTOS], 'ABSOLAR', 16),
     ('RODRIGO MORISHITA WADA', [St.ADVOGADOS], 'UniCEUB', 0),
@@ -111,7 +119,8 @@ listPalestrantes = [
 
 
 class Pltr(IntEnum):
-    AGNES = 0
+    ALDO = 0
+    AGNES = auto()
     VIEIRA = auto()
     UHLIG = auto()
     RUELLI = auto()
@@ -127,6 +136,7 @@ class Pltr(IntEnum):
     EDVALDO = auto()
     EFRAIN = auto()
     SIMON = auto()
+    FELIPE = auto()
     BALDOTTO = auto()
     MOSNA = auto()
     GREG = auto()
@@ -138,11 +148,14 @@ class Pltr(IntEnum):
     ABDO = auto()
     LAVINIA = auto()
     CAIXETA = auto()
+    LINDEMBERG = auto()
     BARROSO = auto()
     MASSOTTI = auto()
     MADUREIRA = auto()
+    VASCONCELOS = auto()
     VELLOSO = auto()
     NARA = auto()
+    HUBNER = auto()
     ROSSETTO = auto()
     LOMBARDI = auto()
     RAPHAEL = auto() 
@@ -152,6 +165,7 @@ class Pltr(IntEnum):
     TILI = auto()
     BOTELHO = auto()
     HOCHSTETLER = auto()
+    VALER = auto()
     FERREIRA = auto()
     SAUAIA = auto()
     MORISHITA = auto()
@@ -177,6 +191,10 @@ listVideos = [
         [Pltr.EDVALDO, Pltr.ANGELA, Pltr.CLAUDIO], "01:10:38", "2023-08-24"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 2', 'misg_b6ut0s', Ct.ENTR_ON, 
         [Pltr.BALDOTTO, Pltr.VIEIRA], "01:00:14", "2023-10-06"),
+    ('Webinar | Medidores inteligentes e a modernização do SEB', 'fvNDHoamaTg', Ct.APR_EV_PR, 
+        [Pltr.LINDEMBERG, Pltr.KELMAN, Pltr.HUBNER, Pltr.VASCONCELOS, Pltr.ALDO], "01:37:37",
+        "2023-10-09"),
+    ('Energy Summit 2023 - Morning', 'V6yXS0v6ARQ', Ct.APR_EV_PR, [Pltr.VALER], "03:07:38", "2023-10-20"),
     ('Brazil Energy Frontiers 2023 - Parte 01', 'rVQRj8MCQFk', Ct.APR_EV_PR, 
         [Pltr.UHLIG, Pltr.SIMON], "01:36:34", "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 02', 'Bl4UnXyjjB0', Ct.APR_EV_PR, 
