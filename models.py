@@ -3,7 +3,7 @@ from getpass import getpass
 from typing import List
 import os
 import json
-from datetime import date
+import datetime
 from sqlalchemy import Column, String, Integer, create_engine, select
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import text
@@ -15,7 +15,7 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
-from sqlalchemy import Date
+from sqlalchemy import Date, Time
 
 database_name = os.getenv('YT_DB_NAME')
 db_username = os.getenv('YT_DB_USER')
@@ -129,12 +129,13 @@ class AssocVideosPalestrantes(Base):
 class Videos(Base):
   __tablename__ = "videos"
 
-  def __init__(self, title, yt_id, categoria, palestrantes, data=None):
+  def __init__(self, title, yt_id, categoria, palestrantes, duracao, data=None):
     self.title = title
     self.yt_id = yt_id
     self.categoria = categoria
     self.palestrantes = palestrantes
     self.data = data
+    self.duracao = datetime.datetime.strptime(duracao, '%H:%M:%S')
 
   id: Mapped[int] = mapped_column(primary_key=True)
   title: Mapped[str] = mapped_column(String(100))
@@ -143,7 +144,9 @@ class Videos(Base):
   yt_id: Mapped[str] = mapped_column(String(11), unique=True)
 
   # data de publicação: é nullable porque nem sempre é possível encontrar esse dado no YT
-  data: Mapped[date] = mapped_column(Date, nullable=True)
+  data: Mapped[datetime.date] = mapped_column(Date, nullable=True)
+
+  duracao: Mapped[datetime.datetime] = mapped_column(Time)
 
   categoria_id: Mapped[int] = mapped_column(ForeignKey("categorias_video.id"))
   categoria: Mapped['CategoriasVideo'] = relationship()
