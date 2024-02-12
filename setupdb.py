@@ -4,7 +4,6 @@ from sqlalchemy import inspect #TODOAQ:
 from enum import IntEnum, auto
 from datetime import date
 
-
 # insert SETORES
 
 listSetores = [
@@ -168,29 +167,29 @@ listVideos = [
     # TITLE, ID, CATEGORIA (indice), PALESTRANTES (indices), DATA (formato ISO)
     ('Seminário “O Futuro do Consumidor de Energia Elétrica” – 5/5/2022 – Parte 1', 'UntRu_fFeLU', Ct.APR_EV_PR,
         [Pltr.SANDOVAL, Pltr.DANILO, Pltr.JARDIM, Pltr.BENTO, Pltr.GREG, Pltr.FERNANDEZ, Pltr.EFRAIN, Pltr.MORISHITA,
-         Pltr.AGNES, Pltr.FERREIRA, Pltr.LAVINIA], "2022-05-05"),
+         Pltr.AGNES, Pltr.FERREIRA, Pltr.LAVINIA], "03:36:07", "2022-05-05"),
     ('Seminário “O Futuro do Consumidor de Energia Elétrica” – 5/5/2022 – Parte 2', 'LivoOrKfi1Y', Ct.APR_EV_PR,
         [Pltr.SANDOVAL, Pltr.BARROSO, Pltr.TIAGO, Pltr.VLADIMIRO, Pltr.ROSSETTO, Pltr.HELVIO, Pltr.WALMIR, Pltr.BOTELHO,
-         Pltr.VELLOSO, Pltr.POVIA], "2022-05-05"),
+         Pltr.VELLOSO, Pltr.POVIA], "03:36:08", "2022-05-05"),
     ('CanalEnergia Debate os caminhos da Geração Distribuída no Brasil', '9iwHMbiA7mA', Ct.DBT_ON, 
-        [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "2023-04-27"),
+        [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "01:30:55", "2023-04-27"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 1', 'XFIplF43xbo', Ct.DBT_ON, 
-        [Pltr.EDVALDO, Pltr.ANGELA, Pltr.CLAUDIO], "2023-08-24"),
+        [Pltr.EDVALDO, Pltr.ANGELA, Pltr.CLAUDIO], "01:10:38", "2023-08-24"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 2', 'misg_b6ut0s', Ct.ENTR_ON, 
-        [Pltr.BALDOTTO, Pltr.VIEIRA], "2023-10-06"),
+        [Pltr.BALDOTTO, Pltr.VIEIRA], "01:00:14", "2023-10-06"),
     ('Brazil Energy Frontiers 2023 - Parte 01', 'rVQRj8MCQFk', Ct.APR_EV_PR, 
-        [Pltr.UHLIG, Pltr.SIMON], "2023-10-25"),
+        [Pltr.UHLIG, Pltr.SIMON], "01:36:34", "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 02', 'Bl4UnXyjjB0', Ct.APR_EV_PR, 
-        [Pltr.JARDIM, Pltr.MASSOTTI, Pltr.ROLLEMBERG, Pltr.RELVA, Pltr.MONTEIRO], "2023-10-25"),
+        [Pltr.JARDIM, Pltr.MASSOTTI, Pltr.ROLLEMBERG, Pltr.RELVA, Pltr.MONTEIRO], "01:17:31", "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 03', '6hwMm02R944', Ct.APR_EV_PR, 
-        [Pltr.KELMAN, Pltr.HOCHSTETLER], "2023-10-25"),
+        [Pltr.KELMAN, Pltr.HOCHSTETLER], "01:40:42", "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 04', '7xnTO0g0D7s', Ct.APR_EV_PR, 
-        [Pltr.ABDO, Pltr.CAIXETA, Pltr.SOLANGE, Pltr.BRANDAO, Pltr.SALES], "2023-10-25"),    
+        [Pltr.ABDO, Pltr.CAIXETA, Pltr.SOLANGE, Pltr.BRANDAO, Pltr.SALES], "01:18:37", "2023-10-25"),    
     ('Mesa Redonda – Desafios da Micro e Minigeração Distribuída', 'JovmyoI0Wxs', Ct.APR_EV_PR, 
         [Pltr.MOSNA, Pltr.TILI, Pltr.HELVIO, Pltr.SAUAIA, Pltr.LOMBARDI, Pltr.BARBARA, 
-         Pltr.JESSIANE], "2023-11-23"),
+         Pltr.JESSIANE], "03:43:21", "2023-11-23"),
     ('SETOR ELÉTRICO PASSADO, PRESENTE, FUTURO', 'zVlDMCxat_c', Ct.ENTR_PR, 
-        [Pltr.EDVALDO], "2024-10-24"),
+        [Pltr.EDVALDO], "01:17:29", "2024-10-24"),
 ]
 
 if __name__ == '__main__':
@@ -265,11 +264,13 @@ if __name__ == '__main__':
             palstrResults = session.query(dbm.Palestrantes).filter(dbm.Palestrantes.nome.in_(vpalestr))
             palestrantes = palstrResults.all()
 
-            vdata = date.fromisoformat(videoData[4])
+            vduracao = videoData[4]
+
+            vdata = date.fromisoformat(videoData[5])
 
             print(f'Inserting video "{vtitle}"...')
             video = dbm.Videos(title=vtitle, yt_id=vid, categoria=categoria, palestrantes=palestrantes,
-                                data=vdata)
+                                duracao=vduracao, data=vdata)
             video.insert(session)
         
         session.commit()
@@ -277,6 +278,9 @@ if __name__ == '__main__':
         print('Exception inserting Videos!')
         session.rollback()
         raise
+
+
+
 
     print('Done!')
 
