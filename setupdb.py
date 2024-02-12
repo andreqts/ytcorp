@@ -217,7 +217,7 @@ listVideos = [
     ('Processos Tarifários de 2024: O que esperar? | Live Canal Solar', 'sd6VqMoKXDA', Ct.DBT_ON, 
         [Pltr.DONATO, Pltr.CARVALHO, Pltr.EWERTON, Pltr.BRUNO], "01:19:16", "2024-01-24"),
     ('SETOR ELÉTRICO PASSADO, PRESENTE, FUTURO', 'zVlDMCxat_c', Ct.ENTR_PR, 
-        [Pltr.EDVALDO], "01:17:29", "2024-10-24"),
+        [Pltr.EDVALDO], "01:17:29", "2024-01-24"),
 ]
 
 if __name__ == '__main__':
