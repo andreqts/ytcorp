@@ -68,6 +68,7 @@ listPalestrantes = [
     ('BÁRBARA RUBIM', [St.GD, St.ADVOGADOS], 'ABSOLAR', 7),
     ('BENTO COSTA LIMA LEITE DE ALBUQUERQUE JUNIOR', [St.POLITICOS], 'Ex-ministro', 8),
     ('BRUNO HENRIQUE KIKUMOTO DE PAULA', [St.GD, St.INSTITUTOS], 'CANAL SOLAR', 7),
+    ('CAMILA FIQUEIREDO BOMFIM LOPES', [St.AGENCIA], 'ANEEL', 24),
     ('CARLOS ALBERTO CALIXTO MATTAR', [St.INSTITUTOS], 'ANEEL', 40),
     ('CLAUDIO ELIAS CARVALHO', [St.FABRICANTES], 'VOLT ROBOTICS', 24),
     ('CLAUDIO FABIANO ALVES', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 11),
@@ -84,8 +85,10 @@ listPalestrantes = [
     ('FERNANDO MOSNA', [St.AGENCIA, St.ADVOGADOS], 'ANEEL', 14),
     ('GREG GUTHRIDGE', [St.INSTITUTOS], 'Ernst & Young', 34),
     ('GUILHERME CHRISPIM', [St.GD], 'ABGD', 9),
+    ('GUILHERME GOLDBACH', [St.INSTITUTOS], 'MITSIDI', 7),
     ('GUILHERME SUSTERAS', [St.GD], 'ABSOLAR', 7),
     ('HÉLVIO NEVES GUERRA', [St.AGENCIA], 'ANEEL', 43),
+    ('JAN KNAACK', [St.INSTITUTOS], 'GIZ', 15),
     ('JERSON KELMAN', [St.AGENCIA, St.INSTITUTOS], 'UFRJ', 51),
     ('JESSIANE PEREIRA', [St.AGENCIA], 'ANEEL', 7),
     ('JOSÉ MÁRIO ABDO', [St.INSTITUTOS, St.AGENCIA], 'ABDO, ELLERY & ASSOCIADOS', 51),
@@ -96,10 +99,13 @@ listPalestrantes = [
     ('MARCIA MASSOTTI', [St.DISTRIBUIDORAS], 'ENEL', 18),
     ('MARCOS AURÉLIO MADUREIRA DA SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 48),
     ('MARCOS VASCONCELOS', [St.AGENCIA], 'ANEEL', 14),
+    ('MARKUS VLASITS', [St.INSTITUTOS], 'NEWCHARGE ENERGY', 11),
     ('MAURICIO ALVARES DA SILVA VELLOSO FERREIRA', [St.DISTRIBUIDORAS], 'EQUATORIAL', 9),
     ('NARA RÚBIA DE SOUZA', [St.AGENCIA], 'ANEEL', 28),
     ('NELSON JOSE HUBNER MOREIRA', [St.AGENCIA, St.INSTITUTOS], 'GESEL E EX-ANEEL', 29),
+    ('NELSON FONTES SIFFERT FILHO', [St.INSTITUTOS], 'ICT RESEL', 2),
     ('NICOLÒ ROSSETTO', [St.INSTITUTOS], 'FLORENCE SCHOOL OF REGULATION', 15),
+    ('PAULO LUCIANO DE CARVALHO', [St.AGENCIA], 'ANEEL', 30),
     ('PEDRO MELLO LOMBARDI', [St.AGENCIA], 'ANEEL', 19),
     ('RAPHAEL GOMES', [St.ADVOGADOS], 'LEFOSSE ADVOGADOS', 23),
     ('RENATO POVIA', [St.GERACAO, St.TRANSMISSAO, St.DISTRIBUIDORAS, St.COMERCIALIZACAO], 'CPFL ENERGIA', 12),
@@ -108,6 +114,7 @@ listPalestrantes = [
     ('RICARDO LAVORATO TILI', [St.AGENCIA], 'ANEEL', 17),
     ('RICARDO PEREZ BOTELHO', [St.GERACAO, St.TRANSMISSAO, St.DISTRIBUIDORAS, St.COMERCIALIZACAO], 'ENERGISA', 23),
     ('RICHARD LEE HOCHSTETLER', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
+    ('ROBERTO  DE CARVALHO BRANDAO', [St.INSTITUTOS], 'GESEL', 14),
     ('ROBERTO VALER', [St.FABRICANTES], 'HUAWEI', 19),
     ('RODRIGO FERREIRA', [St.COMERCIALIZACAO, St.JORNALISTAS], 'ABRACEEL', 24),
     ('RODRIGO LOPES SAUAIA', [St.INSTITUTOS], 'ABSOLAR', 16),
@@ -133,6 +140,7 @@ class Pltr(IntEnum):
     BARBARA = auto()
     BENTO = auto()
     BRUNO = auto()
+    CAMILA = auto()
     MATTAR = auto()
     CARVALHO = auto()
     CLAUDIO = auto()
@@ -149,8 +157,10 @@ class Pltr(IntEnum):
     MOSNA = auto()
     GREG = auto()
     CHRISPIM = auto()
+    GOLDBACH = auto()
     SUSTERAS = auto()
     HELVIO = auto()
+    JAN = auto()
     KELMAN = auto()
     JESSIANE = auto()
     ABDO = auto()
@@ -161,10 +171,13 @@ class Pltr(IntEnum):
     MASSOTTI = auto()
     MADUREIRA = auto()
     VASCONCELOS = auto()
+    VLASITS = auto()
     VELLOSO = auto()
     NARA = auto()
     HUBNER = auto()
+    SIFFERT = auto()
     ROSSETTO = auto()
+    PAULO = auto()
     LOMBARDI = auto()
     RAPHAEL = auto() 
     POVIA = auto()
@@ -173,6 +186,7 @@ class Pltr(IntEnum):
     TILI = auto()
     BOTELHO = auto()
     HOCHSTETLER = auto()
+    ROBERTO = auto()
     VALER = auto()
     FERREIRA = auto()
     SAUAIA = auto()
@@ -189,35 +203,43 @@ listVideos = [
     # TITLE, ID, CATEGORIA (indice), PALESTRANTES (indices), DATA (formato ISO)
     ('Seminário “O Futuro do Consumidor de Energia Elétrica” – 5/5/2022 – Parte 1', 'UntRu_fFeLU', Ct.APR_EV_PR,
         [Pltr.SANDOVAL, Pltr.DANILO, Pltr.JARDIM, Pltr.BENTO, Pltr.GREG, Pltr.FERNANDEZ, Pltr.EFRAIN, Pltr.MORISHITA,
-         Pltr.AGNES, Pltr.FERREIRA, Pltr.LAVINIA], "03:36:07", "2022-05-05"),
+         Pltr.AGNES, Pltr.FERREIRA, Pltr.LAVINIA], "ANEEL", "03:36:07", "2022-05-05"),
     ('Seminário “O Futuro do Consumidor de Energia Elétrica” – 5/5/2022 – Parte 2', 'LivoOrKfi1Y', Ct.APR_EV_PR,
         [Pltr.SANDOVAL, Pltr.BARROSO, Pltr.TIAGO, Pltr.VLADIMIRO, Pltr.ROSSETTO, Pltr.HELVIO, Pltr.WALMIR, Pltr.BOTELHO,
-         Pltr.VELLOSO, Pltr.POVIA], "03:36:08", "2022-05-05"),
+         Pltr.VELLOSO, Pltr.POVIA], "ANEEL", "03:36:08", "2022-05-05"),
     ('CanalEnergia Debate os caminhos da Geração Distribuída no Brasil', '9iwHMbiA7mA', Ct.DBT_ON, 
-        [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "01:30:55", "2023-04-27"),
+        [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "CANAL ENERGIA", "01:30:55", "2023-04-27"),
+    ('Webinar Gesel Armazenamento de energia - 23/05/2023', 'FIzEezK5Mz8', Ct.APR_EV_ON,
+        [Pltr.JAN, Pltr.SIFFERT, Pltr.VLASITS, Pltr.GOLDBACH, Pltr.ROBERTO], "GESEL",  "01:46:47", "2023-05-23"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 1', 'XFIplF43xbo', Ct.DBT_ON, 
-        [Pltr.EDVALDO, Pltr.ANGELA, Pltr.CLAUDIO], "01:10:38", "2023-08-24"),
+        [Pltr.EDVALDO, Pltr.ANGELA, Pltr.CLAUDIO], "CANAL ENERGIA", "01:10:38", "2023-08-24"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 2', 'misg_b6ut0s', Ct.ENTR_ON, 
-        [Pltr.BALDOTTO, Pltr.VIEIRA], "01:00:14", "2023-10-06"),
+        [Pltr.BALDOTTO, Pltr.VIEIRA], "CANAL ENERGIA", "01:00:14", "2023-10-06"),
     ('Webinar | Medidores inteligentes e a modernização do SEB', 'fvNDHoamaTg', Ct.APR_EV_PR, 
-        [Pltr.LINDEMBERG, Pltr.KELMAN, Pltr.HUBNER, Pltr.VASCONCELOS, Pltr.ALDO], "01:37:37",
-        "2023-10-09"),
-    ('Energy Summit 2023 - Morning', 'V6yXS0v6ARQ', Ct.APR_EV_PR, [Pltr.VALER], "03:07:38", "2023-10-20"),
+        [Pltr.LINDEMBERG, Pltr.KELMAN, Pltr.HUBNER, Pltr.VASCONCELOS, Pltr.ALDO], "FGV",
+         "01:37:37", "2023-10-09"),
+    ('Energy Summit 2023 - Morning', 'V6yXS0v6ARQ', Ct.APR_EV_PR, [Pltr.VALER], "UFPB CEAR", 
+     "03:07:38", "2023-10-20"),
     ('Brazil Energy Frontiers 2023 - Parte 01', 'rVQRj8MCQFk', Ct.APR_EV_PR, 
-        [Pltr.UHLIG, Pltr.SIMON], "01:36:34", "2023-10-25"),
+        [Pltr.UHLIG, Pltr.SIMON], "INSTITUTO ACENDE BRASIL", "01:36:34", "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 02', 'Bl4UnXyjjB0', Ct.APR_EV_PR, 
-        [Pltr.JARDIM, Pltr.MASSOTTI, Pltr.ROLLEMBERG, Pltr.RELVA, Pltr.MONTEIRO], "01:17:31", "2023-10-25"),
+        [Pltr.JARDIM, Pltr.MASSOTTI, Pltr.ROLLEMBERG, Pltr.RELVA, Pltr.MONTEIRO], "INSTITUTO ACENDE BRASIL", 
+        "01:17:31", "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 03', '6hwMm02R944', Ct.APR_EV_PR, 
-        [Pltr.KELMAN, Pltr.HOCHSTETLER], "01:40:42", "2023-10-25"),
+        [Pltr.KELMAN, Pltr.HOCHSTETLER], "INSTITUTO ACENDE BRASIL", "01:40:42", "2023-10-25"),
     ('Brazil Energy Frontiers 2023 - Parte 04', '7xnTO0g0D7s', Ct.APR_EV_PR, 
-        [Pltr.ABDO, Pltr.CAIXETA, Pltr.SOLANGE, Pltr.BRANDAO, Pltr.SALES], "01:18:37", "2023-10-25"),    
+        [Pltr.ABDO, Pltr.CAIXETA, Pltr.SOLANGE, Pltr.BRANDAO, Pltr.SALES], "INSTITUTO ACENDE BRASIL", 
+        "01:18:37", "2023-10-25"),    
     ('Mesa Redonda – Desafios da Micro e Minigeração Distribuída', 'JovmyoI0Wxs', Ct.APR_EV_PR, 
         [Pltr.MOSNA, Pltr.TILI, Pltr.HELVIO, Pltr.SAUAIA, Pltr.LOMBARDI, Pltr.BARBARA, 
-         Pltr.JESSIANE], "03:43:21", "2023-11-23"),
+         Pltr.JESSIANE], "ANEEL", "03:43:21", "2023-11-23"),
     ('Processos Tarifários de 2024: O que esperar? | Live Canal Solar', 'sd6VqMoKXDA', Ct.DBT_ON, 
-        [Pltr.DONATO, Pltr.CARVALHO, Pltr.EWERTON, Pltr.BRUNO], "01:19:16", "2024-01-24"),
+        [Pltr.DONATO, Pltr.CARVALHO, Pltr.EWERTON, Pltr.BRUNO], "CANAL SOLAR", "01:19:16", "2024-01-24"),
     ('SETOR ELÉTRICO PASSADO, PRESENTE, FUTURO', 'zVlDMCxat_c', Ct.ENTR_PR, 
-        [Pltr.EDVALDO], "01:17:29", "2024-01-24"),
+        [Pltr.EDVALDO], "CANAL SOLAR", "01:17:29", "2024-01-24"),
+    #TODOAQ: revisar duração e participantes após final do evento
+    ('Workshop da 1ª Chamada de Sandboxes Tarifários', 'X0Z_TObjwfw', Ct.DBT_PR, 
+        [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO], "ANEEL", "09:00:00", "2024-02-21"), 
 ]
 
 if __name__ == '__main__':
@@ -292,13 +314,15 @@ if __name__ == '__main__':
             palstrResults = session.query(dbm.Palestrantes).filter(dbm.Palestrantes.nome.in_(vpalestr))
             palestrantes = palstrResults.all()
 
-            vduracao = videoData[4]
+            vorganizador = videoData[4]
 
-            vdata = date.fromisoformat(videoData[5])
+            vduracao = videoData[5]
+
+            vdata = date.fromisoformat(videoData[6])
 
             print(f'Inserting video "{vtitle}"...')
             video = dbm.Videos(title=vtitle, yt_id=vid, categoria=categoria, palestrantes=palestrantes,
-                                duracao=vduracao, data=vdata)
+                                organizador=vorganizador, duracao=vduracao, data=vdata)
             video.insert(session)
         
         session.commit()
