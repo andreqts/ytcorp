@@ -129,13 +129,15 @@ class AssocVideosPalestrantes(Base):
 class Videos(Base):
   __tablename__ = "videos"
 
-  def __init__(self, title, yt_id, categoria, palestrantes, duracao, data=None):
+  def __init__(self, title, yt_id, categoria, palestrantes, 
+               organizador, duracao, data=None):
     self.title = title
     self.yt_id = yt_id
     self.categoria = categoria
     self.palestrantes = palestrantes
-    self.data = data
+    self.organizador = organizador
     self.duracao = datetime.datetime.strptime(duracao, '%H:%M:%S')
+    self.data = data    
 
   id: Mapped[int] = mapped_column(primary_key=True)
   title: Mapped[str] = mapped_column(String(100))
@@ -154,5 +156,8 @@ class Videos(Base):
   palestrantes: Mapped[List["Palestrantes"]] = relationship(
     secondary=AssocVideosPalestrantes.__table__,
   )
+
+  # entidade, instituição ou editor promotor do evento
+  organizador: Mapped[str] = mapped_column(String(100))
 
 Base.metadata.create_all(engine)
