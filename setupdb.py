@@ -64,7 +64,8 @@ listPalestrantes = [
     ('ALEXANDRE UHLIG', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 18),
     ('ALTINO VENTURA FILHO', [St.INSTITUTOS], 'ACADEMIA NACIONAL DE ENGENHARIA', 52),
     ('ANDRE RUELLI', [St.AGENCIA], 'ANEEL', 23),
-    ('ANGELA SARAIVA', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 23),
+    ('ÂNGELA GOMES', [St.INSTITUTOS], 'PSR', 25),
+    ('ÂNGELA SARAIVA', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 23),
     ('ARNALDO CALIL PEREIRA JARDIM', [St.POLITICOS], 'DEPUTADO FEDERAL - CIDADANIA', 0),
     ('BÁRBARA RUBIM', [St.GD, St.ADVOGADOS], 'ABSOLAR', 7),
     ('BENTO COSTA LIMA LEITE DE ALBUQUERQUE JUNIOR', [St.POLITICOS], 'Ex-ministro', 8),
@@ -82,6 +83,7 @@ listPalestrantes = [
     ('EDVALDO SANTANA', [St.INSTITUTOS, St.AGENCIA, St.CONSUMIDORES], 'INSTITUTO ACENDE BRASIL', 30),
     ('EFRAIN PEREIRA DA CRUZ', [St.AGENCIA, St.POLITICOS], 'Ex-Diretor da ANEEL', 9),
     ('EMANUEL SIMON', [St.INSTITUTOS], 'LATIN AMERICA POWER & RENEWABLES', 14),
+    ('ERIK REGO', [St.INSTITUTOS], 'PSR', 21),
     ('EWERTON GUARNIER', [St.FABRICANTES], 'VOLT ROBOTICS', 16),
     ('FELIPE GONÇALVES', [St.INSTITUTOS], 'FGV ENERGIA RESEARCH', 20),
     ('FERNANDO BALDOTTO', [St.DISTRIBUIDORAS], 'EDP BRASIL', 19),
@@ -146,6 +148,7 @@ class Pltr(IntEnum):
     UHLIG = auto()
     ALTINO = auto()
     RUELLI = auto()
+    AGOMES = auto()
     ANGELA = auto()
     JARDIM = auto()
     BARBARA = auto()
@@ -164,6 +167,7 @@ class Pltr(IntEnum):
     EDVALDO = auto()
     EFRAIN = auto()
     SIMON = auto()
+    ERIK = auto()
     EWERTON = auto()
     FELIPE = auto()
     BALDOTTO = auto()
@@ -265,6 +269,8 @@ listVideos = [
     #TODOAQ: revisar duração e participantes após final do evento
     ('Workshop da 1ª Chamada de Sandboxes Tarifários', 'X0Z_TObjwfw', Ct.DBT_PR, 
         [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO], "ANEEL", "09:00:00", "2024-02-21"), 
+    ('Renovações de concessões, leilões e desafios de 2024', 'TjDI-koDfk4', Ct.DBT_ON, 
+        [Pltr.AGOMES, Pltr.ERIK], "MegaWhat", "01:00:00", "2024-02-27"),
 ]
 
 if __name__ == '__main__':
