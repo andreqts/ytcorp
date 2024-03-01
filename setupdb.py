@@ -8,7 +8,7 @@ from datetime import date
 
 listSetores = [
     'GD',
-    'AGÊNCIA REGULADORA', 
+    'AGÊNCIA REGULADORA E ÓRGÃOS DE GOVERNO', #ANEEL, EPE, ONS, etc...
     'UNIVERSIDADES, CONSULTORIAS E INSTITUTOS DE PESQUISA',
     'JORNALISTAS',
     'POLÍTICOS PROFISSIONAIS',
@@ -77,6 +77,7 @@ listPalestrantes = [
     ('CLAUDIO ELIAS CARVALHO', [St.FABRICANTES], 'VOLT ROBOTICS', 24),
     ('CLAUDIO FABIANO ALVES', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 11),
     ('CLAUDIO J. D. SALES', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 30),
+    ('CRISTIANO VIEIRA DA SILVA', [St.AGENCIA], 'ONS / ANEEL', 21),    
     ('DANILO FORTE', [St.POLITICOS], 'DEPUTADO FEDERAL UNIÃO-CE', 0),
     ('DJALMA MOSQUEIRA FALCÃO', [St.INSTITUTOS], 'UFRJ', 50),
     ('DONATO DA SILVA FILHO', [St.FABRICANTES], 'VOLT ROBOTICS', 20),
@@ -121,6 +122,7 @@ listPalestrantes = [
     ('PEDRO MELLO LOMBARDI', [St.AGENCIA], 'ANEEL', 19),
     ('PIETRO ERBER', [St.INSTITUTOS], 'INSTITUTO NACIONAL DE EFICIÊNCIA ENERGÉTICA', 20),
     ('RAPHAEL GOMES', [St.ADVOGADOS], 'LEFOSSE ADVOGADOS', 23),
+    ('RENATO HADDAD SIMÕES MACHADO', [St.AGENCIA], 'EPE', 15),
     ('RENATO POVIA', [St.GERACAO, St.TRANSMISSAO, St.DISTRIBUIDORAS, St.COMERCIALIZACAO], 'CPFL ENERGIA', 12),
     ('RICARDO BRANDAO SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 20),
     ('RICARDO FERNANDEZ', [St.INSTITUTOS], 'Ernst & Young', 26),
@@ -162,6 +164,7 @@ class Pltr(IntEnum):
     CARVALHO = auto()
     CLAUDIO = auto()
     SALES = auto()
+    CRISTIANO = auto()
     DANILO = auto()
     FALCAO = auto()
     DONATO = auto()
@@ -205,7 +208,8 @@ class Pltr(IntEnum):
     PAULO = auto()
     LOMBARDI = auto()
     ERBER = auto()
-    RAPHAEL = auto() 
+    RAPHAEL = auto()
+    RENATO = auto()
     POVIA = auto()
     BRANDAO = auto()
     FERNANDEZ = auto()
@@ -237,6 +241,8 @@ listVideos = [
         [Pltr.MADUREIRA, Pltr.NARA, Pltr.RAPHAEL, Pltr.CHRISPIM], "CANAL ENERGIA", "01:30:55", "2023-04-27"),
     ('Webinar Gesel Armazenamento de energia - 23/05/2023', 'FIzEezK5Mz8', Ct.APR_EV_ON,
         [Pltr.JAN, Pltr.SIFFERT, Pltr.VLASITS, Pltr.GOLDBACH, Pltr.ROBERTO], "GESEL",  "01:46:47", "2023-05-23"),
+    ('Webinar sobre Armazenamento de Energia Elétrica - 14/06/2023', 'UHO6jxA3H2c', Ct.DBT_ON,
+        [Pltr.HELVIO, Pltr.CRISTIANO, Pltr.RENATO], "ANEEL",  "02:30:12", "2023-06-14"),
     ('Armazenamento e Serviços Ancilares no Sistema Elétrico Brasileiro', 'hNwKPm2l93s', Ct.DBT_ON, 
         [Pltr.CARLOS, Pltr.KELMAN, Pltr.IONY, Pltr.MENEL, Pltr.SANDOVAL, Pltr.SEHN, Pltr.MARTINS, Pltr.GOMES, Pltr.ALTINO, Pltr.ERBER, Pltr.LEPECKI],
          "ACADEMIA NACIONAL DE ENGENHARIA", "02:14:03", "2023-06-20"),
