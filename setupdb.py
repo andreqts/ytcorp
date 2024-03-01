@@ -69,6 +69,7 @@ listPalestrantes = [
     ('ARNALDO CALIL PEREIRA JARDIM', [St.POLITICOS], 'DEPUTADO FEDERAL - CIDADANIA', 0),
     ('BÁRBARA RUBIM', [St.GD, St.ADVOGADOS], 'ABSOLAR', 7),
     ('BENTO COSTA LIMA LEITE DE ALBUQUERQUE JUNIOR', [St.POLITICOS], 'Ex-ministro', 8),
+    ('BERNARDO MARANGON', [St.COMERCIALIZACAO, St.FABRICANTES], 'EXATA ENERGIA', 14),
     ('BRUNO HENRIQUE KIKUMOTO DE PAULA', [St.GD, St.INSTITUTOS], 'CANAL SOLAR', 7),
     ('CAMILA FIQUEIREDO BOMFIM LOPES', [St.AGENCIA], 'ANEEL', 24),
     ('CARLOS ALBERTO CALIXTO MATTAR', [St.INSTITUTOS], 'ANEEL', 40),
@@ -153,6 +154,7 @@ class Pltr(IntEnum):
     JARDIM = auto()
     BARBARA = auto()
     BENTO = auto()
+    BERNARDO = auto()
     BRUNO = auto()
     CAMILA = auto()
     MATTAR = auto()
@@ -266,6 +268,8 @@ listVideos = [
         [Pltr.DONATO, Pltr.CARVALHO, Pltr.EWERTON, Pltr.BRUNO], "CANAL SOLAR", "01:19:16", "2024-01-24"),
     ('SETOR ELÉTRICO PASSADO, PRESENTE, FUTURO', 'zVlDMCxat_c', Ct.ENTR_PR, 
         [Pltr.EDVALDO], "CANAL SOLAR", "01:17:29", "2024-01-24"),
+    ('COMO PROJETAR SISTEMAS DE ENERGIA SOLAR COM BATERIA? Aula Magna', '_owDcOMaCZE', Ct.APR_EV_ON, 
+        [Pltr.BRUNO, Pltr.BERNARDO], "CANAL SOLAR", "02:29:20", "2024-02-08"),
     #TODOAQ: revisar duração e participantes após final do evento
     ('Workshop da 1ª Chamada de Sandboxes Tarifários', 'X0Z_TObjwfw', Ct.DBT_PR, 
         [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO], "ANEEL", "09:00:00", "2024-02-21"), 
