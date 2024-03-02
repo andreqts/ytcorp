@@ -247,7 +247,7 @@ listVideos = [
         [Pltr.CARLOS, Pltr.KELMAN, Pltr.IONY, Pltr.MENEL, Pltr.SANDOVAL, Pltr.SEHN, Pltr.MARTINS, Pltr.GOMES, Pltr.ALTINO, Pltr.ERBER, Pltr.LEPECKI],
          "ACADEMIA NACIONAL DE ENGENHARIA", "02:14:03", "2023-06-20"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 1', 'XFIplF43xbo', Ct.DBT_ON, 
-        [Pltr.EDVALDO, Pltr.ANGELA, Pltr.CLAUDIO], "CANAL ENERGIA", "01:10:38", "2023-08-24"),
+        [Pltr.EDVALDO, Pltr.ANGELA, Pltr.CLAUDIO], "CANAL ENERGIA", "01:10:38", "2023-08-24", True),
     ('Geração Distribuída', 'sXGz5zH5rxQ', Ct.DBT_ON, [Pltr.CHRISPIM, Pltr.KELMAN, Pltr.MENEL, Pltr.IONY, Pltr.GOMES, Pltr.ALTINO, Pltr.FALCAO],
      "ACADEMIA NACIONAL DE ENGENHERIA", "01:51:03", "2023-09-14"),
     ('ENERGY Tech TALKS | Temporada 4, Episódio 2', 'misg_b6ut0s', Ct.ENTR_ON, 
@@ -361,8 +361,13 @@ if __name__ == '__main__':
 
             vdata = date.fromisoformat(videoData[6])
 
+            vtransc = False
+            INDEX_TRANSCRIBED = 7
+            if (len(videoData) > INDEX_TRANSCRIBED):
+                vtransc = videoData[INDEX_TRANSCRIBED]
+
             print(f'Inserting video "{vtitle}"...')
-            video = dbm.Videos(title=vtitle, yt_id=vid, categoria=categoria, palestrantes=palestrantes,
+            video = dbm.Videos(title=vtitle, yt_id=vid, categoria=categoria, transcrito=vtransc, palestrantes=palestrantes,
                                 organizador=vorganizador, duracao=vduracao, data=vdata)
             video.insert(session)
         

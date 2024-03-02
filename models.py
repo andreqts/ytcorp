@@ -16,6 +16,7 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
 from sqlalchemy import Date, Time
+from sqlalchemy import Boolean
 
 database_name = os.getenv('YT_DB_NAME')
 db_username = os.getenv('YT_DB_USER')
@@ -130,14 +131,15 @@ class Videos(Base):
   __tablename__ = "videos"
 
   def __init__(self, title, yt_id, categoria, palestrantes, 
-               organizador, duracao, data=None):
+               organizador, transcrito, duracao, data=None):
     self.title = title
     self.yt_id = yt_id
     self.categoria = categoria
+    self.transcrito = transcrito
     self.palestrantes = palestrantes
     self.organizador = organizador
     self.duracao = datetime.datetime.strptime(duracao, '%H:%M:%S')
-    self.data = data    
+    self.data = data
 
   id: Mapped[int] = mapped_column(primary_key=True)
   title: Mapped[str] = mapped_column(String(100))
@@ -152,6 +154,8 @@ class Videos(Base):
 
   categoria_id: Mapped[int] = mapped_column(ForeignKey("categorias_video.id"))
   categoria: Mapped['CategoriasVideo'] = relationship()
+
+  transcrito: Mapped[bool] = mapped_column(Boolean, default=False)
 
   palestrantes: Mapped[List["Palestrantes"]] = relationship(
     secondary=AssocVideosPalestrantes.__table__,
