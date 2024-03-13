@@ -145,8 +145,8 @@ listPalestrantes = [
 
 
 class Pltr(IntEnum):
-    ALDO = 0
-    AGNES = auto()
+    AGNES = 0
+    ALDO = auto()
     VIEIRA = auto()
     UHLIG = auto()
     ALTINO = auto()
