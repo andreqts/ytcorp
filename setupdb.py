@@ -271,7 +271,7 @@ listVideos = [
         "01:18:37", "2023-10-25"),    
     ('Mesa Redonda – Desafios da Micro e Minigeração Distribuída', 'JovmyoI0Wxs', Ct.APR_EV_PR, 
         [Pltr.MOSNA, Pltr.TILI, Pltr.HELVIO, Pltr.SAUAIA, Pltr.LOMBARDI, Pltr.BARBARA, 
-         Pltr.JESSIANE], "ANEEL", "03:43:21", "2023-11-23"),
+         Pltr.JESSIANE, Pltr.MATTAR], "ANEEL", "03:43:21", "2023-11-23"),
     ('Processos Tarifários de 2024: O que esperar? | Live Canal Solar', 'sd6VqMoKXDA', Ct.DBT_ON, 
         [Pltr.DONATO, Pltr.CARVALHO, Pltr.EWERTON, Pltr.BRUNO], "CANAL SOLAR", "01:19:16", "2024-01-24"),
     ('SETOR ELÉTRICO PASSADO, PRESENTE, FUTURO', 'zVlDMCxat_c', Ct.ENTR_PR, 
