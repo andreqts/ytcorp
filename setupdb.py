@@ -79,6 +79,7 @@ listPalestrantes = [
     ('CLAUDIO J. D. SALES', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 30),
     ('CRISTIANO VIEIRA DA SILVA', [St.AGENCIA], 'ONS / ANEEL', 21),    
     ('DANILO FORTE', [St.POLITICOS], 'DEPUTADO FEDERAL UNIÃO-CE', 0),
+    ('DIEGO LUÍS BRANCHER', [St.AGENCIA], 'ANEEL', 18),
     ('DJALMA MOSQUEIRA FALCÃO', [St.INSTITUTOS], 'UFRJ', 50),
     ('DONATO DA SILVA FILHO', [St.FABRICANTES], 'VOLT ROBOTICS', 20),
     ('EDUARDO MUELLER MONTEIRO', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 21),
@@ -166,6 +167,7 @@ class Pltr(IntEnum):
     SALES = auto()
     CRISTIANO = auto()
     DANILO = auto()
+    BRANCHER = auto()
     FALCAO = auto()
     DONATO = auto()
     MONTEIRO = auto()
@@ -278,7 +280,7 @@ listVideos = [
         [Pltr.BRUNO, Pltr.BERNARDO], "CANAL SOLAR", "02:29:20", "2024-02-08"),
     #TODOAQ: revisar duração e participantes após final do evento
     ('Workshop da 1ª Chamada de Sandboxes Tarifários', 'X0Z_TObjwfw', Ct.DBT_PR, 
-        [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO], "ANEEL", "09:00:00", "2024-02-21"), 
+        [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO, Pltr.BRANCHER, Pltr.LINDEMBERG], "ANEEL", "09:00:00", "2024-02-21"), 
     ('Renovações de concessões, leilões e desafios de 2024', 'TjDI-koDfk4', Ct.DBT_ON, 
         [Pltr.AGOMES, Pltr.ERIK], "MegaWhat", "01:00:00", "2024-02-27"),
 ]
