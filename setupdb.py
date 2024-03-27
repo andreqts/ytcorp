@@ -63,6 +63,7 @@ listPalestrantes = [
     ('ALEX CHERMUCSNIS VIEIRA', [St.INVESTIMENTOS], 'COPPERLEAF STRATEGIC MANAGEMENT', 20),
     ('ALEXANDRE UHLIG', [St.INSTITUTOS], 'INSTITUTO ACENDE BRASIL', 18),
     ('ALTINO VENTURA FILHO', [St.INSTITUTOS], 'ACADEMIA NACIONAL DE ENGENHARIA', 52),
+    ('AMANDA LACERDA PRADO', [St.DISTRIBUIDORAS], 'ENERGISA', 9),
     ('ANDRE RUELLI', [St.AGENCIA], 'ANEEL', 23),
     ('ÂNGELA GOMES', [St.INSTITUTOS], 'PSR', 25),
     ('ÂNGELA SARAIVA', [St.COMERCIALIZACAO], 'ELECTRA ENERGY', 23),
@@ -97,6 +98,7 @@ listPalestrantes = [
     ('GUILHERME SUSTERAS', [St.GD], 'ABSOLAR', 7),
     ('HÉLVIO NEVES GUERRA', [St.AGENCIA], 'ANEEL', 43),
     ('IONY PATRIOTA DE SIQUEIRA', [St.AGENCIA, St.INSTITUTOS], 'CIGRE/ACADEMIA NACIONAL DE ENGENHARIA', 23),
+    ('IURI DE OLIVEIRA BAROUCHE', [St.DISTRIBUIDORAS], 'ENEL', 16),
     ('JAN KNAACK', [St.INSTITUTOS], 'GIZ', 15),
     ('JERSON KELMAN', [St.AGENCIA, St.INSTITUTOS], 'UFRJ', 51),
     ('JESSIANE PEREIRA', [St.AGENCIA], 'ANEEL', 7),
@@ -105,6 +107,7 @@ listPalestrantes = [
     ('LAVINIA HOLLANDA', [St.INSTITUTOS], 'ESCOPO ENERGIA', 10),
     ('LEANDRO CAIXETA MOREIRA', [St.POLITICOS, St.AGENCIA], 'ANEEL', 20),
     ('LINDEMBERG REIS', [St.DISTRIBUIDORAS], 'ABRADEE', 18),
+    ('LUCAS NOURA GUIMARÃES', [St.DISTRIBUIDORAS], 'EDP', 7),
     ('LUIZ AUGUSTO NOBREGA BARROSO', [St.INSTITUTOS], 'PSR', 26),
     ('MARCIA MASSOTTI', [St.DISTRIBUIDORAS], 'ENEL', 18),
     ('MARCOS AURÉLIO MADUREIRA DA SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 48),
@@ -123,6 +126,7 @@ listPalestrantes = [
     ('PEDRO MELLO LOMBARDI', [St.AGENCIA], 'ANEEL', 19),
     ('PIETRO ERBER', [St.INSTITUTOS], 'INSTITUTO NACIONAL DE EFICIÊNCIA ENERGÉTICA', 20),
     ('RAPHAEL GOMES', [St.ADVOGADOS], 'LEFOSSE ADVOGADOS', 23),
+    ('RENATA DE OLIVEIRA E SILVA', [St.DISTRIBUIDORAS], 'EQUATORIAL', 14),
     ('RENATO HADDAD SIMÕES MACHADO', [St.AGENCIA], 'EPE', 15),
     ('RENATO POVIA', [St.GERACAO, St.TRANSMISSAO, St.DISTRIBUIDORAS, St.COMERCIALIZACAO], 'CPFL ENERGIA', 12),
     ('RICARDO BRANDAO SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 20),
@@ -151,6 +155,7 @@ class Pltr(IntEnum):
     VIEIRA = auto()
     UHLIG = auto()
     ALTINO = auto()
+    AMANDA = auto()
     RUELLI = auto()
     AGOMES = auto()
     ANGELA = auto()
@@ -185,6 +190,7 @@ class Pltr(IntEnum):
     SUSTERAS = auto()
     HELVIO = auto()
     IONY = auto()
+    BAROUCHE = auto
     JAN = auto()
     KELMAN = auto()
     JESSIANE = auto()
@@ -193,6 +199,7 @@ class Pltr(IntEnum):
     LAVINIA = auto()
     CAIXETA = auto()
     LINDEMBERG = auto()
+    LUCAS = auto()
     BARROSO = auto()
     MASSOTTI = auto()
     MADUREIRA = auto()
@@ -211,6 +218,7 @@ class Pltr(IntEnum):
     LOMBARDI = auto()
     ERBER = auto()
     RAPHAEL = auto()
+    RENATA = auto()
     RENATO = auto()
     POVIA = auto()
     BRANDAO = auto()
@@ -281,7 +289,8 @@ listVideos = [
         [Pltr.BRUNO, Pltr.BERNARDO], "CANAL SOLAR", "02:29:20", "2024-02-08"),
     #TODOAQ: revisar duração e participantes após final do evento
     ('Workshop da 1ª Chamada de Sandboxes Tarifários', 'X0Z_TObjwfw', Ct.DBT_PR, 
-        [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO, Pltr.BRANCHER, Pltr.LINDEMBERG], "ANEEL", "09:00:00", "2024-02-21"), 
+        [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO, Pltr.BRANCHER, Pltr.LINDEMBERG, Pltr.BAROUCHE,
+         Pltr.LUCAS, Pltr.RENATA, Pltr.AMANDA], "ANEEL", "09:00:00", "2024-02-21"), 
     ('Renovações de concessões, leilões e desafios de 2024', 'TjDI-koDfk4', Ct.DBT_ON, 
         [Pltr.AGOMES, Pltr.ERIK], "MegaWhat", "01:00:00", "2024-02-27"),
 ]
