@@ -108,6 +108,7 @@ listPalestrantes = [
     ('LEANDRO CAIXETA MOREIRA', [St.POLITICOS, St.AGENCIA], 'ANEEL', 20),
     ('LINDEMBERG REIS', [St.DISTRIBUIDORAS], 'ABRADEE', 18),
     ('LUCAS NOURA GUIMARÃES', [St.DISTRIBUIDORAS], 'EDP', 7),
+    ('LUCCA ZAMBONI', [St.DISTRIBUIDORAS, St.INSTITUTOS], 'GESEL / ENEL', 23),
     ('LUIZ AUGUSTO NOBREGA BARROSO', [St.INSTITUTOS], 'PSR', 26),
     ('MARCIA MASSOTTI', [St.DISTRIBUIDORAS], 'ENEL', 18),
     ('MARCOS AURÉLIO MADUREIRA DA SILVA', [St.DISTRIBUIDORAS], 'ABRADEE', 48),
@@ -140,6 +141,8 @@ listPalestrantes = [
     ('RODRIGO LOPES SAUAIA', [St.INSTITUTOS], 'ABSOLAR', 16),
     ('RODRIGO MORISHITA WADA', [St.ADVOGADOS], 'UniCEUB', 0),
     ('RODRIGO ROLLEMBERG', [St.POLITICOS], 'SECRETARIO - PSB', 0),
+    ('ROGER ALVES', [St.DISTRIBUIDORAS], 'CPFL', 15),
+    ('ROSIMEIRE CECILIA DA COSTA', [St.CONSUMIDORES], 'CONACEN', 9),
     ('SANDOVAL DE ARAUJO FEITOSA NETO', [St.AGENCIA], 'ANEEL', 21),
     ('SOLANGE RIBEIRO', [St.DISTRIBUIDORAS, St.INSTITUTOS], 'NEOENERGIA', 20),
     ('STEFANIA RELVA', [St.INSTITUTOS], 'USP', 12),
@@ -200,6 +203,7 @@ class Pltr(IntEnum):
     CAIXETA = auto()
     LINDEMBERG = auto()
     LUCAS = auto()
+    ZAMBONI = auto()
     BARROSO = auto()
     MASSOTTI = auto()
     MADUREIRA = auto()
@@ -232,6 +236,8 @@ class Pltr(IntEnum):
     SAUAIA = auto()
     MORISHITA = auto()
     ROLLEMBERG = auto()
+    ROGER = auto()
+    ROSIMEIRE = auto()
     SANDOVAL = auto()
     SOLANGE = auto()
     RELVA = auto()
@@ -289,8 +295,9 @@ listVideos = [
         [Pltr.BRUNO, Pltr.BERNARDO], "CANAL SOLAR", "02:29:20", "2024-02-08"),
     #TODOAQ: revisar duração e participantes após final do evento
     ('Workshop da 1ª Chamada de Sandboxes Tarifários', 'X0Z_TObjwfw', Ct.DBT_PR, 
-        [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO, Pltr.BRANCHER, Pltr.LINDEMBERG, Pltr.BAROUCHE,
-         Pltr.LUCAS, Pltr.RENATA, Pltr.AMANDA], "ANEEL", "09:00:00", "2024-02-21"), 
+        [Pltr.SANDOVAL, Pltr.CAMILA, Pltr.BRANDAO, Pltr.PAULO, Pltr.BRANCHER, Pltr.LINDEMBERG,
+         Pltr.BAROUCHE, Pltr.LUCAS, Pltr.RENATA, Pltr.AMANDA, Pltr.HELVIO, Pltr.CAMILA, 
+         Pltr.ROSIMEIRE, Pltr.ZAMBONI, Pltr.ROGER], "ANEEL", "09:00:46", "2024-02-21"), 
     ('Renovações de concessões, leilões e desafios de 2024', 'TjDI-koDfk4', Ct.DBT_ON, 
         [Pltr.AGOMES, Pltr.ERIK], "MegaWhat", "01:00:00", "2024-02-27"),
 ]
