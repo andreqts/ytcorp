@@ -193,7 +193,7 @@ class Pltr(IntEnum):
     SUSTERAS = auto()
     HELVIO = auto()
     IONY = auto()
-    BAROUCHE = auto
+    BAROUCHE = auto()
     JAN = auto()
     KELMAN = auto()
     JESSIANE = auto()
