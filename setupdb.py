@@ -305,6 +305,8 @@ listVideos = [
         [Pltr.AGOMES, Pltr.ERIK], "MegaWhat", "01:00:00", "2024-02-27"),
     ('Armazenamento de energia: suas características e casos reais | Webinário', 'r1jLFm7OIgA', Ct.DBT_ON,
         [Pltr.BERNARDO, Pltr.GABRIELLA, Pltr.TOGNIAZZOLO], "CANAL SOLAR", "01:12:10", "2023-11-28"),
+    ('Crise hídrica, privatização da Eletrobras e diversificação da matriz', '3RaNJB_STgU', Ct.ENTR_ON,
+        [Pltr.EDVALDO], "Valor Econômico", "00:54:18", "2022-03-03"),
 ]
 
 if __name__ == '__main__':
