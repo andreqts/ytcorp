@@ -2,7 +2,7 @@
 
 ## Requirements
 
-1. **Linux Ubuntu 20** (or similar system)  
+1. **Linux Ubuntu 20** (or compatible Linux distro) or later
 1. **Python 3.8.10** or higher  
 1. **PostgreSQL 12** or higher  
 1. **SQLAlchemy 2.0.25** or higher  
