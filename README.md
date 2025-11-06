@@ -7,7 +7,7 @@ At its current stage, the system is a work in progress, implementing only the da
 Planned developments include dashboard or web-based interfaces to enable data exploration and facilitate data science analyses of the corpus.
 
 ### Research Context
-The corpus originates from a research project focused on analyzing regulatory framework proposals aimed at fostering the diffusion of Community Microgrids in Brazil, as a strategy to promote the sustainable integration of intermittent distributed renewable energy sources, particularly within electricity distribution systems.
+The corpus originates from a research project focused on analyzing regulatory framework proposals aimed at fostering the diffusion of Community Microgrids in Brazil, as a strategy to promote the sustainable integration of intermittent distributed renewable energy resources, particularly within electricity distribution systems. This investigation was firstly conducted as part of the author’s doctoral research.
 
 ### Project Structure
 
